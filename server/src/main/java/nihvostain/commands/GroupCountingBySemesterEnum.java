@@ -66,7 +66,6 @@ public class GroupCountingBySemesterEnum implements Command {
             }
 
              */
-            System.out.println("new version");
             if (studyGroups.size() ==  1) {
                 ans += "\nКол-во групп " + studyGroups.get(0).getSemesterEnum().getSem() + " семестра равно " + 1;
             } else if (studyGroups.get(studyGroups.size() - 2).getSemesterEnum() != studyGroups.get(studyGroups.size() - 1).getSemesterEnum()) {
@@ -80,9 +79,7 @@ public class GroupCountingBySemesterEnum implements Command {
         System.out.println(ans);
         communication.send(new RequestObj(ans).serialize());
     }
-    public static void main(String[] args) throws IOException {
-        System.out.println("sdkdkd");
-    }
+
     /**
      * @return описание команды
      */

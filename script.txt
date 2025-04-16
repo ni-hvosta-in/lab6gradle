@@ -1,0 +1,10 @@
+show
+info
+group_counting_by_semester_enum
+insert k13
+propba_name
+120
+120
+20
+обычное обучение
+6

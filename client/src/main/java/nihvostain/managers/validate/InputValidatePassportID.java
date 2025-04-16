@@ -35,11 +35,7 @@ public class InputValidatePassportID implements Validable {
         Request request = new Request(TypeRequest.REQUEST_PASSPORT, passport);
         communication.send(request.serialize());
         InvalidParamMessage message = new Deserialize<ResponseParam>(communication.receive()).deserialize().getParam();
-        if (message == InvalidParamMessage.FALSE){
-            return false;
-        } else {
-            return true;
-        }
+        return message != InvalidParamMessage.FALSE;
     }
 
     /**

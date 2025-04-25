@@ -26,11 +26,8 @@ public class GroupCountingBySemesterEnum implements Command {
      * @param args массив аргументов
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.GROUP_COUNTING_BY_SEMESTER_ENUM, args);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.GROUP_COUNTING_BY_SEMESTER_ENUM, args);
     }
 
     /**

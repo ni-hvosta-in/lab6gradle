@@ -1,50 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <StudyGroups>
   <studyGroups>
-    <k23>
+    <k1>
+      <id>0</id>
+      <name>p3118</name>
+      <coordinates>
+        <x>20</x>
+        <Y>20</Y>
+      </coordinates>
+      <creationDate>2025-04-25T17:29:58</creationDate>
+      <studentsCount>20</studentsCount>
+      <formOfEducation>FULL_TIME_EDUCATION</formOfEducation>
+      <semesterEnum>SIXTH</semesterEnum>
+      <groupAdmin/>
+    </k1>
+    <k2>
       <id>1</id>
-      <name>propba_name</name>
+      <name>p3118</name>
       <coordinates>
-        <x>120</x>
-        <Y>120</Y>
+        <x>21</x>
+        <Y>21</Y>
       </coordinates>
-      <creationDate>2025-04-13T00:56:29</creationDate>
-      <studentsCount>20</studentsCount>
-      <formOfEducation>FULL_TIME_EDUCATION</formOfEducation>
+      <creationDate>2025-04-25T17:32:22</creationDate>
+      <studentsCount>21</studentsCount>
+      <formOfEducation>DISTANCE_EDUCATION</formOfEducation>
       <semesterEnum>SIXTH</semesterEnum>
-      <groupAdmin/>
-    </k23>
-    <k22>
-      <id>3</id>
-      <name>propba_name</name>
-      <coordinates>
-        <x>120</x>
-        <Y>120</Y>
-      </coordinates>
-      <creationDate>2025-04-13T00:58:46</creationDate>
-      <studentsCount>20</studentsCount>
-      <formOfEducation>FULL_TIME_EDUCATION</formOfEducation>
-      <semesterEnum>SECOND</semesterEnum>
       <groupAdmin>
-        <name>САША</name>
-        <data>2023-10-25T14:30:00+03:00</data>
-        <passportID>212122</passportID>
+        <name>саша</name>
+        <data/>
+        <passportID>202020</passportID>
         <eyeColor>YELLOW</eyeColor>
-        <hairColor>BLACK</hairColor>
+        <hairColor>WHITE</hairColor>
       </groupAdmin>
-    </k22>
-    <k10>
-      <id>5</id>
-      <name>propba_name</name>
-      <coordinates>
-        <x>120</x>
-        <Y>120</Y>
-      </coordinates>
-      <creationDate>2025-04-13T00:59:27</creationDate>
-      <studentsCount>20</studentsCount>
-      <formOfEducation>FULL_TIME_EDUCATION</formOfEducation>
-      <semesterEnum>SIXTH</semesterEnum>
-      <groupAdmin/>
-    </k10>
+    </k2>
   </studyGroups>
 </StudyGroups>

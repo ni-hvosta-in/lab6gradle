@@ -1,10 +1,13 @@
 show
-info
-group_counting_by_semester_enum
-insert k13
+insert k3
 propba_name
 120
 120
 20
 обычное обучение
 6
+петя
+25-07-2006T14:30:00+03:00
+202003
+черный
+белый

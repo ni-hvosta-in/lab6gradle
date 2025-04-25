@@ -36,25 +36,28 @@ public class GroupCountingBySemesterEnum implements Command {
         List<StudyGroup> studyGroups = new ArrayList<>(collectionManager.getStudyGroupList().values());
         Collections.sort(studyGroups);
         String ans = "";
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(1);
         if (studyGroups.isEmpty()) {
-            System.out.println("Коллекция пуста");
             ans = "Коллекция пуста";
         } else {
 
-            ArrayList<Integer> a = new ArrayList<>();
-            a.add(1);
-            ans = IntStream.range(0, studyGroups.size()-1).mapToObj(x -> {
-
-                String s = "";
-                s += studyGroups.get(x) + "\n";
-                if (studyGroups.get(x).getSemesterEnum() != studyGroups.get(x + 1).getSemesterEnum()) {
-                    s += "\nКол-во групп " + studyGroups.get(x).getSemesterEnum().getSem() + " семестра равно " + a.get(0) + "\n";
-                    a.set(0, 1);
-                } else {
-                    a.set(0, a.get(0) + 1);
-                }
-                return s;
-            }).collect(Collectors.joining());
+            if (studyGroups.size() == 1) {
+                ans += studyGroups.get(0);
+            }
+            else {
+                ans = IntStream.range(0, studyGroups.size() - 1).mapToObj(x -> {
+                    String s = "";
+                    s += studyGroups.get(x) + "\n";
+                    if (studyGroups.get(x).getSemesterEnum() != studyGroups.get(x + 1).getSemesterEnum()) {
+                        s += "\nКол-во групп " + studyGroups.get(x).getSemesterEnum().getSem() + " семестра равно " + a.get(0) + "\n";
+                        a.set(0, 1);
+                    } else {
+                        a.set(0, a.get(0) + 1);
+                    }
+                    return s;
+                }).collect(Collectors.joining());
+            }
             /*
             for (int i = 0; i < studyGroups.size() - 1; i++) {
                 ans += studyGroups.get(i) + "\n";

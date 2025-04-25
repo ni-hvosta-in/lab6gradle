@@ -93,7 +93,6 @@ public class Invoker {
                     }
                 } else if (request.getTypeRequest() == TypeRequest.REQUEST_PARAM){
                     ResponseParam responseParam = new ResponseParam(commands.get(request.getName()).isValidParam(request.getParams()));
-                    System.out.println("отправил "+ Arrays.toString(responseParam.serialize()));
                     communication.send(responseParam.serialize());
                 } else if (request.getTypeRequest() == TypeRequest.REQUEST_PASSPORT) {
                     System.out.println("Паспорт" + request.getParams() + " " + Person.getPassportIDList().contains(request.getParams().get(0)));

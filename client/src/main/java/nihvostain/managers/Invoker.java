@@ -149,7 +149,7 @@ public class Invoker {
 
         }
         if (!fileFlag){
-            Invoker invoker = new Invoker(sc, communication);
+            Invoker invoker = new Invoker(new Scanner(System.in), communication);
             invoker.setDepth(1);
             System.out.println("чтобы выйти из консоли введите exit");
             System.out.print("~ ");

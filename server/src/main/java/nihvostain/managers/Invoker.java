@@ -81,7 +81,6 @@ public class Invoker {
             byte[] message;
 
             message = communication.receive();
-            System.out.println(Arrays.toString(message));
             Request request;
 
             try {

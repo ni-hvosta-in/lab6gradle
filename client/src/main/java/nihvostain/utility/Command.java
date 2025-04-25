@@ -1,5 +1,6 @@
 package nihvostain.utility;
 
+import common.managers.Request;
 import common.model.*;
 import common.exceptions.*;
 import common.utility.*;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
 
 public interface Command {
-    void request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException;
+    Request request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException;
     /**
      * Возвращает описание
      * @return описание

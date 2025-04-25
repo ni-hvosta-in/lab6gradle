@@ -25,12 +25,9 @@ public class RemoveLowerCommand implements Command {
      * @param args массив аргументов
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
 
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.REMOVE_LOWER, new StudyGroup(args));
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.REMOVE_LOWER, new StudyGroup(args));
     }
 
     /**

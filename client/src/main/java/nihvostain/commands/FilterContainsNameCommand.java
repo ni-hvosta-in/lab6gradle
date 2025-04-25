@@ -28,11 +28,8 @@ public class FilterContainsNameCommand implements Command {
      * запрос выполнения команды на сервере
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.FILTER_CONTAINS_NAME, args);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+    public Request request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.FILTER_CONTAINS_NAME, args);
     }
 
     /**

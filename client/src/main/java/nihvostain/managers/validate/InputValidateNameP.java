@@ -40,20 +40,17 @@ public class InputValidateNameP implements Validable {
         String name;
         Console.write("Введите имя ", fileFlag);
         do{
-            if (sc.hasNext()) {
-                name = sc.nextLine().trim();
-                if (!isValidate(name)) {
-                    if (fileFlag) {
-                        throw new InputFromScriptException();
-                    }
-                    System.out.println("имя не может быть пустым");
-                    System.out.print("Введите имя ");
-                } else {
-                    break;
+            name = sc.nextLine().trim();
+            if (!isValidate(name)) {
+                if (fileFlag) {
+                    throw new InputFromScriptException();
                 }
+                System.out.println("имя не может быть пустым");
+                System.out.print("Введите имя ");
             } else {
-                return null;
+                break;
             }
+
 
         } while (!fileFlag);
         return name;

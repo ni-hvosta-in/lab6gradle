@@ -25,11 +25,8 @@ public class InfoCommand implements Command {
      * @param args массив аргументов
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.INFO);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+    public Request request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.INFO);
     }
 
     /**

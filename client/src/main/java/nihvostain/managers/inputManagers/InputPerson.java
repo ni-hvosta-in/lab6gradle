@@ -41,7 +41,6 @@ public class InputPerson extends InputClass{
         validableHashMap.put(FieldsPerson.PassportID, new InputValidatePassportID(this.getSc(), skipFlag, communication));
         validableHashMap.put(FieldsPerson.EyeCOLOR, new InputValidateEye(this.getSc()));
         validableHashMap.put(FieldsPerson.HairCOLOR, new InputValidateHair(this.getSc()));
-
         args.add(validableHashMap.get(FieldsPerson.NAME).inputValidate(this.isFileFlag()));
         validableHashMap.remove(FieldsPerson.NAME);
         if (args.get(0) != null) {

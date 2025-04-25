@@ -24,15 +24,12 @@ public class InsertCommand implements Command {
 
 
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
         String key = args.get(0);
         ArrayList<String> params = new ArrayList<>();
         params.add(key);
         args.remove(0);
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.INSERT, new StudyGroup(args), params);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.INSERT, new StudyGroup(args), params);
     }
 
     /**

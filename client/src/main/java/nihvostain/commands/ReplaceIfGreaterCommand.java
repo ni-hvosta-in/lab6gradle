@@ -25,17 +25,15 @@ public class ReplaceIfGreaterCommand implements Command {
 
     /**
      * @param args массив аргументов
+     * @return
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
         String key = args.get(0);
         ArrayList<String> params = new ArrayList<>();
         params.add(key);
         args.remove(0);
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.REPLACE_IF_GREATER, new StudyGroup(args), params);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.REPLACE_IF_GREATER, new StudyGroup(args), params);
     }
 
     /**
@@ -74,7 +72,6 @@ public class ReplaceIfGreaterCommand implements Command {
         message = request.serialize();
         communication.send(message);
         byte[] response = communication.receive();
-        System.out.println(Arrays.toString(response));
         return new Deserialize<ResponseParam>(response).deserialize().getParam();
     }
 

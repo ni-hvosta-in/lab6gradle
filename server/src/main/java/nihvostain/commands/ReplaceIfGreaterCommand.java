@@ -31,7 +31,7 @@ public class ReplaceIfGreaterCommand implements Command {
         String key = request.getParams().get(0);
         if (collectionManager.getStudyGroupList().containsKey(key)){
             StudyGroup studyGroup = request.getStudyGroup();
-
+            studyGroup.setID(collectionManager.getStudyGroupList().get(key).getId());
             if (studyGroup.compareTo(collectionManager.getStudyGroupList().get(key)) > 0){
                 collectionManager.updateStudyGroup(key, studyGroup);
                 RequestObj req = new RequestObj("заменил");

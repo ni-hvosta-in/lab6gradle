@@ -27,17 +27,14 @@ public class FilterGreaterThanGroupAdminCommand implements Command {
      * @param args массив аргументов
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
         Person p;
         if (args.get(0) == null){
             p = null;
         } else {
             p = new Person(args);
         }
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.FILTER_GREATER_THAN_GROUP_ADMIN, p);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.FILTER_GREATER_THAN_GROUP_ADMIN, p);
     }
 
     /**

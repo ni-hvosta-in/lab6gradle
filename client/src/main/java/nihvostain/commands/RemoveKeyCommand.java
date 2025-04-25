@@ -27,11 +27,8 @@ public class RemoveKeyCommand implements Command {
      * @param args массив аргументов
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.REMOVE_KEY, args);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.REMOVE_KEY, args);
     }
 
     /**
@@ -70,7 +67,6 @@ public class RemoveKeyCommand implements Command {
         message = request.serialize();
         communication.send(message);
         byte[] response = communication.receive();
-        System.out.println(Arrays.toString(response));
         return new Deserialize<ResponseParam>(response).deserialize().getParam();
     }
 

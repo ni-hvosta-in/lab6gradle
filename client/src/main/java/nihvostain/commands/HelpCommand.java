@@ -20,10 +20,9 @@ public class HelpCommand implements Command {
     }
 
     @Override
-    public void request(ArrayList<String> args) {
-
+    public Request request(ArrayList<String> args) {
         commands.forEach(x -> System.out.println(x.description()));
-
+        return null;
     }
 
     /**

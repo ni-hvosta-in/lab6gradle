@@ -101,7 +101,21 @@ public class Invoker {
                             } else if (command.getElementType().equals(TypeOfElement.STUDYGROUP)) {
                                 args.addAll(new InputStudyGroup(sc, fileFlag, command.skipValidateField(), communication).input());
                             }
-                            command.request(args);
+
+                            if (command == commands.get("help")) {
+                                command.request(args);
+                            } else {
+                                try {
+                                    communication.send(command.request(args).serialize());
+                                    byte[] message = communication.receive();
+                                    System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
+                                    if (command == commands.get("exit")) {
+                                        System.exit(0);
+                                    }
+                                } catch (NullPointerException e){
+                                    continue;
+                                }
+                            }
                         } else if (fileFlag) {
                             System.out.println("Неверные параметры для вызванной команды в скрипте");
                             throw new InputFromScriptException();

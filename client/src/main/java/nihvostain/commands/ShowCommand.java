@@ -3,7 +3,6 @@ package nihvostain.commands;
 import common.model.TypeOfElement;
 import common.managers.*;
 import common.utility.*;
-import common.model.*;
 import nihvostain.managers.Communication;
 import nihvostain.utility.Command;
 
@@ -22,13 +21,9 @@ public class ShowCommand implements Command {
     }
 
     @Override
-    public void request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
+    public Request request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
 
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.SHOW, args);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
-
+        return new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.SHOW, args);
     }
 
     /**

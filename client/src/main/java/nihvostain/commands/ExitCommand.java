@@ -26,12 +26,8 @@ public class ExitCommand implements Command {
      * @param args массив аргументов
      */
     @Override
-    public void request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
-        Request request = new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.EXIT);
-        communication.send(request.serialize());
-        byte[] message = communication.receive();
-        System.out.println(new Deserialize<RequestObj>(message).deserialize().getRequest());
-        System.exit(0);
+    public Request request(ArrayList<String> args) throws IOException, TimeoutException, ClassNotFoundException {
+        return  new Request(TypeRequest.REQUEST_COMMAND, TypeCommand.EXIT);
     }
 
     /**

@@ -48,6 +48,7 @@ public class RemoveLowerCommand implements Command {
         }
         else {
             System.out.println("Коллекция пуста");
+            communication.send(new RequestObj("Коллекция пуста").serialize());
         }
     }
 

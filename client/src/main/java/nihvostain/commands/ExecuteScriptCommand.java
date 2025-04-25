@@ -1,5 +1,6 @@
 package nihvostain.commands;
 import common.exceptions.*;
+import common.managers.Request;
 import common.model.TypeOfElement;
 import common.utility.InvalidParamMessage;
 import nihvostain.managers.Communication;
@@ -23,7 +24,7 @@ public class ExecuteScriptCommand implements Command {
     }
 
     @Override
-    public void request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
+    public Request request(ArrayList<String> args) throws IOException, ClassNotFoundException, TimeoutException {
         Scanner sc = null;
         try {
             sc = new Scanner(new File(args.get(0)));
@@ -39,6 +40,7 @@ public class ExecuteScriptCommand implements Command {
         } catch (FileNotFoundException e) {
             System.out.println("Не удается найти указанный файл");;
         }
+        return null;
     }
 
     /**
